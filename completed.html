@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>日程調整 | PERSONA - ペルソナ</title>
+  <link rel="icon" href="./img/assign-icon.png" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+  <link href="./src/style.css" rel="stylesheet" type="text/css">
+
+  <!-- Quasar設定 -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons|Material+Icons+Outlined|Material+Icons+Round"
+    rel="stylesheet" type="text/css">
+  <link href="https://cdn.jsdelivr.net/npm/animate.css@^4.0.0/animate.min.css" rel="stylesheet" type="text/css">
+  <link href="https://cdn.jsdelivr.net/npm/quasar@2.12.2/dist/quasar.prod.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div id="q-app">
+    <q-layout view="lHh lpr lFf">
+      <!-- ヘッダー -->
+      <q-header elevated class="q-pa-sm" style="background: rgba(0, 0, 0, 0.22);">
+        <q-toolbar>
+          <q-toolbar-title>
+            <a href="./">
+              <q-img src="./img/persona_logo_white.png" style="width: 170px; height: 38px;"></q-img>
+            </a>
+          </q-toolbar-title>
+        </q-toolbar>
+      </q-header>
+
+      <!-- ページ本体 -->
+      <div class="white_bg_auto q-pa-lg">
+        <q-card class="q-pa-lg q-mx-auto privacy_terms_bg">
+          <div class="text-body1 text-center for_pc completed_page">
+            <p>資料請求のお申し込みをいただき、ありがとうございます。</p>
+            <p>ご入力いただいたメールアドレスに資料を送付いたしました。</p>
+            <br/>
+            <p>資料が届かない場合には、お手数ですが以下のメールアドレスにご連絡いただけますと幸いです。</p>
+            <a class="text-blue" href="mailto: persona-customer-support@a-ssign.com">persona-customer-support@a-ssign.com</a>
+            <div style="height: 30px;"></div>
+            <p>また、PERSONAのデモンストレーションをご希望の方は</p>
+            <p>下記より打ち合わせの日程調整が可能ですので、ご都合の良い日時をご選択ください。</p>
+            <q-btn
+              label="デモを申し込む"
+              href="https://chouseisancal.com/persona"
+              class="q-ma-md text-white bg-primary"
+              size="22px"
+            >
+            </q-btn>
+          </div>
+          <div class="text-body1 text-center for_phone q-pa-md completed_page">
+            <p>資料請求のお申し込みいただき<br>ありがとうございます。</p>
+            <p>ご入力いただいたメールアドレスに資料を送付いたしました。</p>
+            <br/>
+            <p>資料が届かない場合には<br>お手数ですが以下のメールアドレスにご連絡いただけますと幸いです。</p>
+            <a class="text-blue" href="mailto: persona-customer-support@a-ssign.com">persona-customer-support@a-ssign.com</a>
+            <div style="height: 30px;"></div>
+            <p>また、PERSONAのデモンストレーションをご希望の方は下記より打ち合わせの日程調整が可能ですので、ご都合の良い日時をご選択ください。</p>
+            <q-btn
+              label="デモを申し込む"
+              href="https://chouseisancal.com/persona"
+              class="q-ma-md text-white bg-primary"
+              size="22px"
+            >
+            </q-btn>
+          </div>
+        </q-card>
+      </div>
+
+      <!-- フッター -->
+      <div class="colored_bg_auto">
+
+        <div class="space_short"></div>
+
+        <div class="row justify-center">
+          <!-- 企業情報 -->
+          <div class="col-9">
+            <q-separator color="white" size="3px"></q-separator>
+            <div class="row">
+              <div class="col-sm-auto col-md-9 col-md-9">
+                <img class="footer_img q-mb-lg" src="./img/img_assign.svg" />
+                <div class="text-white">
+                  <q-icon name="near_me"></q-icon>
+                  東京都千代田区霞が関3丁目2-5
+                </div>
+                <div class="text-white">
+                  <q-icon name="mail"></q-icon>
+                  persona-customer-support@a-ssign.com
+                </div>
+                <div class="text-white">
+                  <a href="https://assign-inc.com/" style="color:inherit;text-decoration: none;">
+                    <q-icon name="link"></q-icon>
+                    https://assign-inc.com
+                  </a>
+                </div>
+              </div>
+              <div class="col-sm-auto col-md-3 col-md-3">
+                <p class="text-bold text-white q-mt-md">LINKS</p>
+                <a class="text-white" href="./privacy" target="_blank">
+                  PERSONA プライバシーポリシー
+                  <q-icon name="open_in_new"></q-icon>
+                </a>
+                <br />
+                <a class="text-white" href="./terms" target="_blank">
+                  PERSONA 利用規約
+                  <q-icon name="open_in_new"></q-icon>
+                </a>
+              </div>
+            </div>
+            <div class="space_short"></div>
+            <q-separator dark></q-separator>
+            <div class="space_very_short"></div>
+            <p class="text-white" style="font-size: 10px;">©ASSIGN Inc. All Right Reserved.</p>
+            <div class="space_short"></div>
+          </div>
+        </div>
+
+      </div>
+
+    </q-layout>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/quasar@2.12.2/dist/quasar.umd.prod.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/quasar@2.12.2/dist/lang/ja.umd.prod.js"></script>
+  <script>
+    const app = Vue.createApp({
+      setup() {
+        return {
+
+        }
+      }
+    });
+    app.use(Quasar, {
+      config: {
+        brand: {
+          primary: '#00084d',
+        }
+      },
+    })
+    Quasar.lang.set(Quasar.lang.ja)
+    app.mount('#q-app')
+  </script>
+</body>
+
+</html>
+
+<style>
+  p {
+   text-indent: 0em;
+   padding-left: 1em;
+  } 
+
+  .content__table {
+    border: 1px solid #e6e6e6;
+    margin-bottom: 40px;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 40px;
+  }
+
+  .styled-list {
+    list-style: none;  /* 既存のリストスタイルを非表示にします */
+    padding: 0;  /* リストの余白をリセットします */
+  }
+
+  .styled-list li {
+    counter-increment: my-counter;  /* カウンターをインクリメントします */
+  }
+
+  .styled-list li::before {
+    content: "(" counter(my-counter) ") ";  /* カウンターの値を表示します */
+  }
+</style>
