@@ -23,7 +23,7 @@
         <!-- ヘッダー -->
         <q-header 
           elevated
-          class="q-pa-sm header_phone"
+          class="q-pa-sm"
           style="background: rgba(0, 0, 0, 0.22);"
         >
             <q-toolbar>
@@ -47,6 +47,11 @@
                 class="text-bold q-mr-md text-white bg-primary"
               >
               </q-btn>
+              <button
+                class="header_button_phone"
+              >
+                無料説明会
+              </button>
             </q-toolbar>
         </q-header>
 
@@ -88,6 +93,9 @@
               私たちは約束します。「個人の中に潜む能力 = エース」と、<br>
               「社会の中に潜む人材 = エース」を開拓し、転職者・採用者ともに輝かせることを。
             </p>
+            <div class="service_img">
+              <q-img src="../img/documents_img.png"></q-img>
+            </div>
           </div>
         </div>
 
@@ -101,8 +109,8 @@
           <q-card
               class="feature_card"
             >
-            <div class="row feature_wrap">
-              <div class="col-6 feature_textarea_1">
+            <div class="row feature_wrap wrap">
+              <div class="col-md-12 col-lg-6 col-xl-6 feature_textarea_1">
                 <p class="text-primary text-bold feature_number">
                   01
                 </p>
@@ -115,7 +123,7 @@
                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
                 </p>
               </div>
-              <div class="col-6">
+              <div class="col-md-12 col-lg-6 col-xl-6">
                 <q-img class="feature_img" src="https://picsum.photos/500/300"></q-img>
               </div>
             </div>
@@ -128,11 +136,11 @@
           <q-card
             class="feature_card"
           >
-            <div class="row feature_wrap">
-              <div class="col-6">
+            <div class="row feature_wrap reverse-wrap">
+              <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
                 <q-img class="feature_img" src="https://picsum.photos/500/301"></q-img>
               </div>
-              <div class="col-6 feature_textarea_2">
+              <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 feature_textarea_2">
                 <p class="text-primary text-bold feature_number">
                   02
                 </p>
@@ -155,7 +163,7 @@
             class="feature_card"
           >
             <div class="row feature_wrap">
-              <div class="col-6 feature_textarea_1">
+              <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 feature_textarea_1">
                 <p class="text-primary text-bold feature_number">
                   03
                 </p>
@@ -167,7 +175,7 @@
                   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
                 </p>
               </div>
-              <div class="col-6">
+              <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
                 <q-img class="feature_img" src="https://picsum.photos/500/302"></q-img>
               </div>
             </div>
@@ -182,6 +190,48 @@
           src="./img/academy_info_background.png"
         >
           <h4 class="text-white text-bold">INFORMATION</h4>
+          <q-list 
+            dark 
+            separator
+            class="information_list"
+          >
+            <q-separator 
+              dark
+            ></q-separator>
+
+            <!-- 1つ目 -->
+            <q-item 
+              clickable 
+              v-ripple
+              class="row"
+            >
+              <div class="text-white col-3 q-my-auto">2023.10.01</div>
+              <div class="text-white col-9 q-my-auto">サービス正式リリース</div>
+            </q-item>
+      
+            <!-- 2つ目 -->
+            <q-item 
+              clickable 
+              v-ripple
+              class="row"
+            >
+              <div class="text-white col-3 q-my-auto">2023.10.01</div>
+              <div class="text-white col-9 q-my-auto">イベントを開催しました</div>
+            </q-item>
+      
+            <!-- 3つ目 -->
+            <q-item 
+              clickable 
+              v-ripple
+              class="row"
+            >
+              <div class="text-white col-3 q-my-auto">2023.10.01</div>
+              <div class="text-white col-9 q-my-auto">ASSIGN MEDIAに掲載されました</div>
+            </q-item>
+            <q-separator 
+              dark
+            ></q-separator>
+          </q-list>
         </q-parallax>
 
         <!-- フッター -->
@@ -199,11 +249,11 @@
               <div class="row q-pa-lg">
                 <div class="col-sm-auto col-md-8 col-md-8">
                   <img class="footer_img q-mb-lg" src="./img/assign_logo.svg"/>
-                  <div>
+                  <div style="white-space: nowrap;">
                     <q-icon name="near_me"></q-icon>
                     東京都千代田区霞が関3丁目2-5
                   </div>
-                  <div class="footer_link_external" style="white-space: nowrap;">
+                  <div class="footer_link_external">
                     <q-icon name="mail"></q-icon>
                     academy-customer-support@a-ssign.com
                   </div>
