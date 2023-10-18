@@ -58,7 +58,8 @@
         <!-- ページトップ -->
         <div class="top_bg">
           <div class="mainvisual_inner">
-            <img src="./img/academy_top_mainvisual.webp" alt="あなたのキャリアに戦略を"></img>
+            <img class="mainvisual_img_pc" src="./img/academy_top_mainvisual_pc.webp" alt="あなたのキャリアを叶えるコーチングを。"></img>
+            <img class="mainvisual_img_phone" src="./img/academy_top_mainvisual_phone.webp" alt="あなたのキャリアを叶えるコーチングを。"></img>
             <q-btn
               size="lg"
               label="無料説明会のお申し込み"
@@ -74,25 +75,28 @@
         <!-- サービス -->
         <div>
           <div class="service_top">
-            <h1>SERVICE</h1>
-            <p>
-              ハイエンドの教材を<br/>
-              あなただけの専属講師から
-            </p>
-            <div class="service_img">
-              <q-img src="./img/documents_img.webp"></q-img>
+            <div class="service_top_wrapper">
+              <h1>SERVICE<span>/ サービス</span></h1>
+              <hr/>
+              <p>
+                若手からのキャリア形成の<br/>
+                ためのコーチング              
+              </p>
+              <div class="service_img">
+                <q-img src="./img/documents_img.webp"></q-img>
+              </div>
             </div>
           </div>
           <div class="service_bottom">
-            <p>
-              あなたの目的は、転職という「点」を成功させることではないはず。<br>
-              私たちは、転職を「線」として考える。<br>
-              あなたがこれまでどんな道を歩み、これからどんな道を歩もうとしているのか。<br>
-              転職のサポートはもちろん、転職後もずっと寄り添い続けていたい。<br>
-              あなた以上に、あなたの人生に真剣だ。<br>
-              私たちは約束します。「個人の中に潜む能力 = エース」と、<br>
-              「社会の中に潜む人材 = エース」を開拓し、転職者・採用者ともに輝かせることを。
-            </p>
+            <div class="service_bottom_wrapper">
+              <p>
+                自身の人生がどこに向かうべきなのか、<br>
+                そのための方法、手段を明確に定義し、実行に移している人はどれほどいるのだろうか。<br>
+                若手からキャリアを形成していかなければいけない中で、目の前の仕事、プライベートのみに時間を使っている人が大半である。<br>
+                私たちはあなたが望むキャリアを明確にし、短期的、長期的な結果をサポートします。<br>
+                若手からキャリアに真剣に向き合う方の自己投資先として、あなたの自己実現、市場価値を上げることに全力で取り組みます。
+              </p>
+            </div>
             <div class="service_img">
               <q-img src="./img/documents_img.webp"></q-img>
             </div>
@@ -103,7 +107,7 @@
         <div class="space_short"></div>
 
         <!-- サービスの流れ -->
-        <div class="white_bg_auto q-pa-lg">
+        <div class="grey_bg_auto q-pa-lg">
 
           <!-- Point 01 -->
           <q-card
@@ -115,15 +119,17 @@
                   01
                 </p>
                 <p class="text-h4 text-grey-9 q-mt-md text-bold">
-                  キャリアプラン実現に<br>
-                  最適な教材を提供
+                  キャリア実現のための<br>
+                  オーダーメイドカリキュラム
                 </p>
-                <p class="text-body1 text-grey-9 text-bold">
-                  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX<br>
-                  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                <hr/>
+                <p class="text-body1 text-grey-9">
+                  アサイン アカデミーでは決まったカリキュラムの提供を行いません。<br>
+                  まずは、現在の状況やあなたの価値観を軸にし、将来像を共に考えます。<br>
+                  その上で、将来像と現在とのギャップを明確にし、ギャップを埋めるためのオーダーメイドのカリキュラムを提供いたします。                  
                 </p>
               </div>
-              <div class="col-md-12 col-lg-6 col-xl-6">
+              <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
                 <q-img class="feature_img" src="https://picsum.photos/500/300"></q-img>
               </div>
             </div>
@@ -138,18 +144,21 @@
           >
             <div class="row feature_wrap reverse-wrap">
               <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                <q-img class="feature_img" src="https://picsum.photos/500/301"></q-img>
+                <q-img class="feature_img" src="./img/feature2.webp"></q-img>
               </div>
               <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 feature_textarea_2">
                 <p class="text-primary text-bold feature_number">
                   02
                 </p>
                 <p class="text-h4 text-grey-9 q-mt-md text-bold">
-                  講師からの直接講義
+                  実業務に活きるコーチングを
                 </p>
-                <p class="text-body1 text-grey-9 text-bold">
-                  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX<br>
-                  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                <hr/>
+                <p class="text-body1 text-grey-9">
+                  他コーチングでは、目標を発見することや中長期的なアドバイスを行うケースが多い。<br>
+                  だからこそ、実業務に活きるコーチングを行えないケースもあります。<br>
+                  アサイン アカデミーでは各領域のプロフェッショナルがあなたの実業務に活きるコーチングも行います。<br>
+                  ですので、中長期的なキャリア形成と短期的な結果の両方にコミットいたします。
                 </p>
               </div>
             </div>
@@ -168,11 +177,14 @@
                   03
                 </p>
                 <p class="text-h4 text-grey-9 q-mt-md text-bold">
-                  伴走サポート
+                  各分野のプロフェッショナルが<br>
+                  作成したサービス内容
                 </p>
-                <p class="text-body1 text-grey-9 text-bold">
-                  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX<br>
-                  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                <hr/>
+                <p class="text-body1 text-grey-9">
+                  本サービスを作るにあたり、様々な方からのアドバイスを参考にしています。<br>
+                  プライム上場企業の経営者、副社長、役員の方々や人事責任者。各領域のプロフェッショナルにいたるまで多くの方からご協力を頂いて本サービスを作成いたしました。<br>
+                  自身で調べることのできない情報やノウハウをもとにあなたのキャリア形成のサポートを行います。<br>
                 </p>
               </div>
               <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
@@ -238,7 +250,7 @@
         </q-parallax>
 
         <!-- フッター -->
-        <div class="white_bg_auto">
+        <div class="grey_bg_auto">
 
           <!-- 空白 -->
           <div class="space_short"></div>
