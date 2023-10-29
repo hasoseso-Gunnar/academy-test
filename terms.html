@@ -3,11 +3,16 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>利用規約 | PERSONA - ペルソナ</title>
+  <title>ASSIGN ACADEMY | アサイン アカデミー</title>
   <link rel="icon" href="./img/assign-icon.png" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
   <link href="./src/style.css" rel="stylesheet" type="text/css">
+
+  <meta property="og:title" content="ASSIGN ACADEMY | アサイン アカデミー">
+  <meta property="og:description" content="若手からのキャリア形成を伴走するコーチングサービス">
+  <meta property="og:url" content="https://hasoseso-gunnar.github.io/academy-test/">
+  <meta property="og:image" content="https://hasoseso-gunnar.github.io/academy-test/img/academy_top_background.webp"/>
 
   <!-- Quasar設定 -->
   <link
@@ -20,20 +25,42 @@
 <body>
   <div id="q-app">
     <q-layout view="lHh lpr lFf">
-      <!-- ヘッダー -->
-      <q-header elevated class="q-pa-sm" style="background: rgba(0, 0, 0, 0.22);">
-        <q-toolbar>
-          <q-toolbar-title>
-            <a href="./">
-              <q-img src="./img/persona_logo_white.png" style="width: 170px; height: 38px;"></q-img>
-            </a>
-          </q-toolbar-title>
-        </q-toolbar>
-      </q-header>
+
+        <!-- ヘッダー -->
+        <q-header 
+          elevated
+          class="q-pa-sm"
+          style="background: rgba(0, 0, 0, 0.22);"
+        >
+            <q-toolbar>
+              <q-toolbar-title>
+                <a href="./">
+                  <img
+                    src="./img/academy_logo_redblack.webp"
+                    class="header_img"
+                    id="headerImgChanged"
+                  />
+                </a>
+              </q-toolbar-title>
+              <q-btn
+                size="lg"
+                label="無料説明会のお申し込み"
+                class="text-bold q-mr-md text-white bg-primary"
+              >
+              </q-btn>
+              <button
+                class="header_button_phone"
+              >
+                無料説明会
+              </button>
+            </q-toolbar>
+        </q-header>
 
       <!-- ページ本体 -->
       <div class="white_bg_auto q-pa-lg">
-        <q-card class="q-pa-lg q-mx-auto privacy_terms_bg">
+        <q-card 
+          class="q-pa-lg q-mx-auto privacy_terms_bg"
+        >
           <div class="text-body1">
             <p><strong>利用規約</strong></p>
             <p>
@@ -326,52 +353,67 @@
         </q-card>
       </div>
 
-      <!-- フッター -->
-      <div class="colored_bg_auto">
+        <!-- フッター -->
+        <div class="grey_bg_auto">
 
-        <div class="space_short"></div>
+          <!-- 空白 -->
+          <div class="space_short"></div>
 
-        <div class="row justify-center">
           <!-- 企業情報 -->
-          <div class="col-9">
-            <q-separator color="white" size="3px"></q-separator>
-            <div class="row">
-              <div class="col-sm-auto col-md-9 col-md-9">
-                <img class="footer_img q-mb-lg" src="./img/img_assign.svg" />
-                <div class="text-white">
-                  <q-icon name="near_me"></q-icon>
-                  東京都千代田区霞が関3丁目2-5
+          <div class="row justify-center">
+
+            <!-- ロゴ・所在地・メール -->
+            <div class="col-8">
+              <q-separator color="red-14" size="3px"></q-separator>
+              <div class="row q-pa-lg">
+                <div class="col-sm-auto col-md-8 col-md-8">
+                  <img class="footer_img q-mb-lg" src="./img/assign_logo.svg"/>
+                  <div style="white-space: nowrap;">
+                    <q-icon name="near_me"></q-icon>
+                    東京都千代田区霞が関3丁目2-5
+                  </div>
+                  <div class="footer_link_external">
+                    <q-icon name="mail"></q-icon>
+                    academy-customer-support@a-ssign.com
+                  </div>
+                  <div>
+                    <a class="footer_link_external" href="https://assign-inc.com/" style="color:inherit; text-decoration: none;">
+                      <q-icon name="link"></q-icon>
+                      https://assign-inc.com
+                    </a>
+                  </div>
                 </div>
-                <div class="text-white">
-                  <q-icon name="mail"></q-icon>
-                  persona-customer-support@a-ssign.com
-                </div>
-                <div class="text-white">
-                  <a href="https://assign-inc.com/" style="color:inherit;text-decoration: none;">
-                    <q-icon name="link"></q-icon>
-                    https://assign-inc.com
+
+                <!-- LINKS -->
+                <div class="col-sm-auto col-md-4 col-md-4">
+                  <p class="text-bold text-black q-mt-md">LINKS</p>
+                  <a class="text-black footer_link_external" href="./privacy">
+                    ASSIGN ACADEMY プライバシーポリシー
+                    <q-icon name="open_in_new"></q-icon>
+                  </a>
+                  <br/>
+                  <a class="text-black footer_link_external" href="./terms">
+                    ASSIGN ACADEMY 利用規約
+                    <q-icon name="open_in_new"></q-icon>
+                  </a>
+                  <br/>
+                  <a class="text-black footer_link_external" href="./scta">
+                    特定商取引法に基づく表示
+                    <q-icon name="open_in_new"></q-icon>
                   </a>
                 </div>
               </div>
-              <div class="col-sm-auto col-md-3 col-md-3">
-                <p class="text-bold text-white q-mt-md">LINKS</p>
-                <a class="text-white" href="./privacy" target="_blank">
-                  PERSONA プライバシーポリシー
-                  <q-icon name="open_in_new"></q-icon>
-                </a>
-                <br />
-                <a class="text-white" href="./terms" target="_blank">
-                  PERSONA 利用規約
-                  <q-icon name="open_in_new"></q-icon>
-                </a>
-              </div>
+
+              <!-- copyright -->
+              <div class="space_very_short"></div>
+              <q-separator></q-separator>
+              <div class="space_very_short"></div>
+              <p class="text-black" style="font-size: 10px; margin-left: 20px;">©ASSIGN Inc. All Right Reserved.</p>
+              <div class="space_short"></div>
+
             </div>
-            <div class="space_short"></div>
-            <q-separator dark></q-separator>
-            <div class="space_very_short"></div>
-            <p class="text-white" style="font-size: 10px;">©ASSIGN Inc. All Right Reserved.</p>
-            <div class="space_short"></div>
           </div>
+
         </div>
 
       </div>
@@ -392,7 +434,7 @@
     app.use(Quasar, {
       config: {
         brand: {
-          primary: '#00084d',
+          primary: '#be0000',
         }
       },
     })

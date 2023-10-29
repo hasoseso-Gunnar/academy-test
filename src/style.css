@@ -202,6 +202,10 @@ div.service_top span{
   width: 185px;
 }
 
+.privacy_terms_bg{
+  margin-top: 60px;
+}
+
 
 /* タブレット用 */
 @media screen and (min-width: 693px) and (max-width: 834px){
