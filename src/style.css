@@ -49,7 +49,7 @@ body a.footer_link_external:hover{
   display: none;
 }
 
-.mainvisual_inner button{
+.mainvisual_inner a{
   width: 20%;
   margin-left: 20px;
   margin-top: 20px;
@@ -232,14 +232,14 @@ div.service_top span{
     width: 90%;
   }
   
-  div.mainvisual_inner button{
+  div.mainvisual_inner a{
     width: 50%;
     margin-left: 120px;
     margin-top: 50px;
     height: 70px;
   }
 
-  div.mainvisual_inner button span{
+  div.mainvisual_inner a span{
     font-size: 24px;
   }
 
@@ -342,7 +342,7 @@ div.service_top span{
     width: 61%;
   }
 
-  .q-toolbar button.q-btn{
+  .q-toolbar a.q-btn{
     display: none;
   }
 
@@ -374,13 +374,13 @@ div.service_top span{
     width: 100%;
   }
   
-  div.mainvisual_inner button{
+  div.mainvisual_inner a{
     width: 75%;
     margin-left: 45px;
     height: 50px;
   }
 
-  div.mainvisual_inner button span{
+  div.mainvisual_inner a span{
       font-size: 20px;
   }
 
