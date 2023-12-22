@@ -1,0 +1,644 @@
+:root {
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: #fafafa;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+}
+
+a {
+  font-weight: 500;
+  color: #EF454A;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #EF454A;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  background: linear-gradient(to bottom right, #EF454A, #f56368);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.card {
+  padding: 2em;
+}
+
+#app { 
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.title {
+  color: #000;
+  box-shadow: 1px 1px 3px 0 #999;
+  background: none #fff;
+  width: 100%;
+  font-size: 16px;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.complete_main{
+  background: white;
+  height: 100vh;
+}
+
+.msg{
+  margin-top: 3px;
+  padding-top: 60px;
+  white-space: pre-line;
+}
+
+.calendar_table {
+  display: inline-block;
+  margin: 0 auto 25px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.calendar_table dl {
+  float: left;
+  margin: 0;
+}
+
+
+@media screen and (min-width: 1000px){
+      .calendar_table dl dt {
+      padding: 8px 4px;
+      font-size: 16px;
+  }
+}
+
+.calendar_table dl dt {
+  margin: 0 2px 4px 2px;
+  width: 74px;
+}
+
+.calendar_table dt {
+  color: black;
+  font-weight: 500;
+  font-size: 18px;
+}
+.calendar_table dl dd {
+  margin: 2px 4px;
+}
+
+.calendar_table dl dd del:not(:target) {
+  border: 2px solid #9999999e;
+  border-radius: 2%;
+}
+
+.calendar_table dl dd a:not(:target){
+  border: 2px solid #f56368;
+  border-radius: 2%;
+}
+
+.calendar_table dl dd del {
+  text-decoration: line-through;
+}
+
+@media screen and (min-width: 1000px){
+  .calendar_table dl dd a {
+    padding: 10px 15px;
+    font-size: 16px;
+  }
+ .calendar_table dl dd del {
+    padding: 10px 15px;
+    font-size: 16px;
+  }
+}
+
+.calendar_table dd del {
+  background: #fafafa;
+  color: #9999999e;
+}
+
+.calendar_table dl dd a:hover {
+  opacity: .7;
+}
+
+
+@media screen and (min-width: 1000px){
+  .calendar_table dd a:hover {
+  background: linear-gradient(to bottom right,#f56368, #EF7D45);
+  color: white;
+  }
+}
+
+.calendar_table dl dd a, .calendar_table dl dd del {
+  display: block;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+}
+
+.calendar_table dd a {
+  background: linear-gradient(to bottom right, #f56368, #EF7D45);
+  color: white;
+}
+
+a:active, a:hover {
+  outline: 0;
+}
+
+a, button {
+  text-decoration: none;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+form#appointBookForm {
+  background-color: #fff;
+  display: block;
+  margin: auto;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+@media screen and (min-width: 1000px){
+  #appointBookForm {
+  margin: 0 30px 30px;
+  }
+}
+
+#appointBookForm {
+padding: 50px 0 30px;
+}
+
+@media screen and (min-width: 1000px){
+  form {
+      width: 960px;
+  }
+}
+
+.book-attention{
+  font-size: 11px;
+}
+
+@media screen and (min-width: 1000px){
+  .entry_form dl {
+  width: 60%;
+  margin: 0 auto;
+  }
+}
+
+.entry_form dl {
+  overflow: auto;
+  margin-bottom: 5px;
+}
+
+.entry_form dl#book_time_list dt {
+  float: left;
+  clear: both;
+  width: 44%;
+}
+
+.entry_form dl dt {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+  padding: 5px;
+}
+
+.entry_form input, .entry_form textarea, .entry_form select {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 6px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  color: #333;
+  font-size: 16px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+input {
+  line-height: normal;
+}
+
+.entry_form dl#book_time_list dd {
+  float: left;
+  width: auto;
+  padding: 5px 8px;
+}
+
+.entry_form dl dd {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 0 8px;
+  text-align: left;
+}
+
+.entry_form button:hover {
+  background: linear-gradient(to bottom right,#f56368, #EF7D45);
+  opacity: 0.7;
+}
+
+.entry_form button {
+  background: linear-gradient(to bottom right,#f56368, #EF7D45);
+  color: #fff;
+}
+
+.entry_form button {
+  padding: 12px 100px;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border: 0;
+  font-size: 16px;
+}
+
+.title .title-image-assign{
+  width: 150px;
+  height: 36px;
+  float: left;
+  margin: 15px 25px;
+  position: absolute;
+  left: 0px;
+}
+
+.title .title-image-view{
+  width: 150px;
+  height: 36px;
+  float: left;
+  margin: 15px 25px;
+  position: absolute;
+  left: 0px;
+}
+
+.title h1{
+  margin-right: 50px;
+}
+
+textarea{
+  resize: vertical;
+}
+
+.loader {
+  margin-top: 100px;
+  width: 48px;
+  height: 48px;
+  border: 5px solid #FFF;
+  border-bottom-color: #FF3D00;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  }
+
+  @keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+} 
+
+#formSubmitLoading{
+  width: 380px;
+  height: 48px;
+  display: none;
+}
+
+.button_loader {
+  width: 18px;
+  height: 18px;
+  border: 3px solid #FFF;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+.complete_main button:hover {
+  background: linear-gradient(to bottom right,#f56368, #EF7D45);
+  opacity: 0.7;
+}
+  
+.complete_main button {
+  background: linear-gradient(to bottom right,#f56368, #EF7D45);
+  color: #fff;
+  border-radius: 2px;
+}
+
+.arrow_button{
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.arrow_button:hover{
+  opacity: 0.7;
+  transition: all .3s;
+}
+
+.balloon_box {
+  position: relative;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 750px;
+  color: #555;
+  font-size: 16px;
+  background: #FFF;
+  border: solid 1px gray;
+  box-sizing: border-box;
+  white-space: pre-line;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.block{
+  height: 60px;
+}
+
+.arrow_button_for_phone{
+  display: none;
+  height: 0px;
+  width: 0px;
+  margin: 0px;
+}
+
+@media screen and (max-width: 480px) {
+	.title{
+    box-shadow: 1px 1px 3px 0 #999;
+    background: none #fff;
+    width: 100%;
+    font-size: 15px;
+    overflow: auto;
+    text-align: center;
+    display: block;
+  }
+  
+  .title h1 {
+    margin-right: 0px;
+  }
+
+  .title .title-image-view{
+    width: 150px;
+    height: 36px;
+    margin: 20px 0px 0px 0px;
+    float: none;
+    position: unset;
+  }
+
+  .title .title-image-assign{
+    width: 150px;
+    height: 36px;
+    margin: 20px 0px 0px 0px;
+    float: none;
+    position: unset;
+  }
+
+  .balloon_box{
+    max-width: 90%;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    font-size: 12px;
+  }
+
+  .calendar_table dl dt {
+    margin: 0 2px 4px 2px;
+    padding: 8px 0px;
+    font-size: 10px;
+    word-wrap: break-word;
+    width: auto;
+  }
+
+  .calendar_table dl dd{
+    margin: 2px 2px;
+  }
+
+  .calendar_table dl dd a {
+    font-size: 14px;
+    padding: 10px 0;
+  }
+
+  .calendar_table dl dd del {
+    font-size: 14px;
+    padding: 10px 0;
+  }
+
+  .entry_form button{
+    width: 90%;
+    padding: 0.6em 1.2em;
+  }
+
+  .arrow_button{
+    width: 0px;
+    margin: 0px;
+  }
+
+  div .arrow_block{
+    width: 0px;
+    margin: 0px;
+  }
+
+  .arrow_button_for_phone{
+    display: block;
+    margin: 10px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+  }
+
+  #calendarArrowRightForPhone{
+    margin-left: auto;
+  }
+
+  #formSubmitLoading{
+    width: 90%;
+  }
+
+  div.complete_msg{
+    font-size: 14px;
+    width: 90%;
+    line-height: 20px;
+    padding: 20px 10px 20px 10px;
+  }
+}
+
+.complete_msg{
+  background-color: #fff;
+  display: block;
+  margin: auto;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  width: 70%;
+  padding: 10px 0px 10px 0px;
+}
+
+.arrow_block{
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+}
+
+.fixedElement {
+  position: relative;
+  display: none;
+}
+
+.fixedElement.fixed {
+  display: block;
+  position: fixed;
+  top: 0;
+  width: 76px;
+  border-bottom: 2px solid #9999999e;
+  z-index: 10;
+  background: #fafafa;
+  padding: 10px 16px;
+  font-size: 16px;
+  animation: DownAnime 0.5s forwards;
+}
+
+@keyframes DownAnime{
+  from {
+    opacity: 0;
+  transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+  transform: translateY(0px);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .fixedElement.fixed {
+    margin: 0 2px 4px 0.5px;
+    padding: 8px 2.5px;
+    font-size: 10px;
+    word-wrap: break-word;
+    width: auto;
+  }
+}
+
+/* ASSIGN 導線用 */
+
+.img_box {
+	position: relative;
+  width: 50%;
+  height: 450px;
+	margin-top: 25px;
+  margin-bottom: 400px;
+	display: block;
+	overflow: hidden;
+	cursor: pointer;
+}
+.img_box img {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	width: 100%;
+	display: block;
+	-webkit-transition: .4s ease-in-out;
+	transition: .4s ease-in-out;
+}
+.img_box:hover img:nth-of-type(2) {
+	opacity: 0;
+}
+
+.assign_button{
+  width: 30%;
+}
+
+.img_box_phone{
+  display: none;
+}
+
+@media screen and (max-width: 519px) {
+
+  div.img_box{
+    display: none;
+  }
+
+  div.img_box_phone {
+    position: relative;
+    width: 90%;
+    height: 450px;
+    margin-top: 25px;
+    margin-bottom: 50px;
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  div.img_box_phone img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 100%;
+    display: block;
+    -webkit-transition: .4s ease-in-out;
+    transition: .4s ease-in-out;
+  }
+
+  div.img_box_phone:hover img:nth-of-type(2) {
+    opacity: 0;
+  }
+
+  img.assign_button{
+    width: 80%;
+  }
+}
+
+/* ASSIGN 導線用 */

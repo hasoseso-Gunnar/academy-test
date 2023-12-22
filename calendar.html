@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="noindex">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+        <link rel="icon" type="image" href="./img/assign-icon.png" />
+        <title>無料相談 | ASSIGN ACADEMY</title>
+        <link rel="stylesheet" href="./src/calendar-style.css">
+
+        <!-- Quasar設定 -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons|Material+Icons+Outlined|Material+Icons+Round" rel="stylesheet" type="text/css">
+        <link href="https://cdn.jsdelivr.net/npm/animate.css@^4.0.0/animate.min.css" rel="stylesheet" type="text/css">
+        <link href="https://cdn.jsdelivr.net/npm/quasar@2.12.2/dist/quasar.prod.css" rel="stylesheet" type="text/css">
+    </head>
+    <body id="q-app">
+        <center>
+            <div class="title">
+                <img class="title-image-assign" src="./img/ASSIGN.png">
+                <h5 id="calendarTitle" style="margin: 20px 0px 20px 0px; font-weight: bold;">【無料面談のご予約】</h5>
+            </div>
+            <section class="main">
+                <p class="balloon_box" id="calendarMessage">ご希望の時間帯をご選択ください。<br>（お電話にて30分程度をご想定くださいませ。）</p>
+                <!-- カレンダー部分 -->
+                <div style="display: flex;">
+                    <img class="arrow_button_for_phone" id="calendarArrowLeftForPhone" src="./img/arrow_left.png" style="display: none;"  @click="previousCalendar"></img>
+                    <img class="arrow_button_for_phone" id="calendarArrowRightForPhone" src="./img/arrow_right.png" style="display: none;"   @click="nextCalendar"></img>
+                </div>
+                <div style="display: inline-flex">
+                    <img class="arrow_button" id="calendarArrowLeft" src="./img/arrow_left.png" style="display: none;" @click="previousCalendar"></img>
+                    <div class="arrow_block" id="calendarArrowBlockLeft"></div>
+                    <q-spinner
+                      color="primary"
+                      size="9em"
+                      :thickness="4"
+                      v-if="pageLoading"
+                    >
+                    </q-spinner>
+                    <div class="calendar_table" id="calendarTimeTable">
+                    </div>
+                    <img class="arrow_button" id="calendarArrowRight" src="./img/arrow_right.png" style="display: none;"  @click="nextCalendar"></img>
+                    <div class="arrow_block" id="calendarArrowBlockRight"></div>
+                </div>
+                <!-- 入力フォーム -->
+                <form id="appointBookForm" class="entry_form" style="display: none; margin-bottom: 100px; color: black;">
+                    <dl id="target">
+                        <dt>
+                            <font color="red">*</font><label for="form_book_dt">予約日時 </label>
+                        </dt>
+                        <dd id="formDate"><font color="red">※ 予約日時を1コマ選択してください。</font></dd>
+                    </dl>
+                    <div style="margin: 15px auto 25px; border: dotted 1px #ccc; width: 60%"></div>
+                    <dl>
+                        <!-- 名前入力欄 -->
+                        <div id="calendarFormName">
+                            <dt id="calendarFormNameRequired"><font color="red">*</font><label for="formName">お名前</label></dt>
+                            <dd>
+                                <q-input 
+                                  dense
+                                  type="text"
+                                  v-model="formName"
+                                >
+                                </q-input>								
+                            </dd>
+                        </div>
+                        <!-- メールアドレス入力欄 -->
+                        <div id="calendarFormEmail">
+                            <dt id="calendarFormEmailRequired">
+                                <font color="red">*</font><label for="formEmail">メールアドレス</label>
+                                <br/>
+                                <font color="red" style="font-size: 13px; padding: 0 8px;">※ gmailやYahoo!メール、outolook等のPCアドレスを推奨しております。</font>
+                            </dt>
+                            <dd>
+                              <q-input 
+                                dense
+                                type="email"
+                                v-model="formEmail"
+                              >
+                              </q-input>
+                            </dd>
+                        </div>
+                        <!-- 電話番号入力欄 -->
+                        <div id="calendarFormTel">
+                            <dt id="calendarFormTelRequired"><font color="red">*</font><label for="formTel">電話番号</label></dt>
+                            <dd>
+                                <input 
+                                  v-model="formTel"
+                                  type="tel" 
+                                >
+                            </dd>
+                        </div>
+                        <!-- 性別入力欄 -->
+                        <div id="calendarFormGender">
+                            <dt id="calendarFormGenderRequired"><font color="red">*</font><label for="formGender">性別</label></dt>
+                            <dd>
+                                <select id="formGender">
+                                    <option></option>
+                                    <option value="男性">男性</option>
+                                    <option value="女性">女性</option>
+                                    <option value="その他">その他</option>
+                                </select>								
+                            </dd>
+                        </div>
+                        <!-- 会社名入力欄 -->
+                        <div id="calendarFormCompany">
+                            <dt id="calendarFormCompanyRequired"><font color="red">*</font><label for="formCompany">会社名</label></dt>
+                            <dd>
+                                <input id="formCompany" type="text">		
+                            </dd>
+                        </div>
+                        <!-- 年齢入力欄 -->
+                        <div id="calendarFormAge">
+                            <dt id="calendarFormAgeRequired"><font color="red">*</font><label for="formAge">年齢</label></dt>
+                            <dd>
+                                <select id="formAge">
+                                </select>								
+                            </dd>
+                        </div>
+                        <!-- テーマ3つ選択欄 -->
+                        <div id="calendarFormAge">
+                            <dt id="calendarFormThemeRequired"><font color="red">*</font><label for="formAge">コーチングで扱いたいテーマに当てはまるものを最大3つまで選んでください</label></dt>
+                            <dd>
+                                <select id="formTheme" multiple>
+                                    <option value="ライフプラン・人生の目的">ライフプラン・人生の目的</option>
+                                    <option value="価値観・やりたいこと・ビジョン">価値観・やりたいこと・ビジョン</option>
+                                    <option value="起業・独立">起業・独立</option>
+                                    <option value="キャリアプラン">キャリアプラン</option>
+                                    <option value="転職">転職</option>
+                                    <option value="働き方">働き方</option>
+                                    <option value="人間関係">人間関係</option>
+                                    <option value="目標達成・成果">目標達成・成果</option>
+                                    <option value="経営">経営</option>
+                                    <option value="リーダーシップ">リーダーシップ</option>
+                                    <option value="マネジメント">マネジメント</option>
+                                    <option value="その他">その他</option>
+                                </select>	
+                            </dd>
+                        </div>
+                        <!-- コメント入力欄 -->
+                        <div id="calendarFormComment">
+                            <dt id="calendarFormCommentRequired"><font color="red">*</font><label for="formComment">ASSIGN ACEDEMYを知ったきっかけを教えてください</label></dt>
+                            <dd>
+                                <textarea id="formComment"></textarea>
+                            </dd>
+                        </div>
+                    </dl>
+                    <div>
+                        <p class="book-attention" ><a href="https://assign-inc.com/policy/" target="_blank">個人情報取り扱い方針</a>をご確認ください。</p>
+                    </div>
+                    <button type="button" id="formSubmit" onclick="calendarSubmit();">
+                        <span class="agree_text">上記に同意して</span>&nbsp;<span class="submit_button">送信する</span>
+                    </button>
+                    <button type="button" id="formSubmitLoading">
+                        <span class="button_loader"></span>
+                    </button>
+                    <div id="errorMessage">               
+                    </div>
+                </form>
+                <div class="block">
+                </div>
+            </section>
+        </center>
+        <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/quasar@2.12.2/dist/quasar.umd.prod.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/quasar@2.12.2/dist/lang/ja.umd.prod.js"></script>
+        <script>
+          const { useQuasar } = Quasar;
+          const { ref, onMounted } = Vue;
+    
+          const app = Vue.createApp({
+            setup () {
+    
+              //変数宣言
+              const $q = useQuasar();
+              const pageLoading = ref(false);
+              const emptyList = ref(null);
+              const pageIndex = ref(0);
+              
+              // 画面読み込み時の処理
+              onMounted(async () => {
+
+                //ローディング開始
+                pageLoading.value = true;
+
+                //DBから返却されたメールアドレスをもとに、カレンダー予約を行う
+                const requestOptions = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `route=get&`,
+                };
+
+                //カレンダー情報取得
+                await fetch(`https://script.google.com/macros/s/AKfycbyNUUbWgE29rZqwPUnB8WDTCJl6QvaOFdaJgXaDQJjWIgHSUm2SsDshWTJMWyIqeHTzpQ/exec`,requestOptions)
+                  .then(async(res)=>{
+                    return(res.json());
+                  })
+                  .then(async(json)=>{
+                    
+                    emptyList.value = json.data;
+
+                    //カレンダーの表示を設定
+                    await nextCalendar();
+
+                    //読み込みが終わり次第入力フォームを表示
+                    document.getElementById('appointBookForm').style.display = 'block';
+
+                    //ローディング終了
+                    pageLoading.value = false;
+                  })
+                  //エラー発生時
+                  .catch((err)=>{
+                    // window.location.href = 'calendar-error';
+                  })
+              })
+    
+              //カレンダーの次のページを表示する関数
+              const nextCalendar = () => {
+
+                document.getElementById('calendarTimeTable').innerHTML = '';
+
+                //カレンダーの情報取得
+                for(let i = 7 * pageIndex.value; i < 7 * (pageIndex.value + 1); i++){
+
+                  //カレンダー横のボタン表示の切り替え
+                  if(pageIndex.value > 0){
+                      document.getElementById('calendarArrowLeft').style.display = 'block';
+                      document.getElementById('calendarArrowBlockLeft').style.display = 'none';
+                      document.getElementById('calendarArrowLeftForPhone').style.display = 'block';
+                      if(Object.values(emptyList.value).length > 7 * (pageIndex.value + 1)){
+                        document.getElementById('calendarArrowRight').style.display = 'block';
+                        document.getElementById('calendarArrowBlockRight').style.display = 'none';
+                        document.getElementById('calendarArrowRightForPhone').style.display = 'block';
+                      }else{
+                        document.getElementById('calendarArrowRight').style.display = 'none';
+                        document.getElementById('calendarArrowBlockRight').style.display = 'block';
+                        document.getElementById('calendarArrowRightForPhone').style.display = 'none';
+                      };
+                  }else{
+                      document.getElementById('calendarArrowLeft').style.display = 'none';
+                      document.getElementById('calendarArrowBlockLeft').style.display = 'block';
+                      document.getElementById('calendarArrowLeftForPhone').style.display = 'none';
+                      if(Object.values(emptyList.value).length > 7 * (pageIndex.value + 1)){
+                        document.getElementById('calendarArrowRight').style.display = 'block';
+                        document.getElementById('calendarArrowBlockRight').style.display = 'none';
+                        document.getElementById('calendarArrowRightForPhone').style.display = 'block';
+                      }else{
+                        document.getElementById('calendarArrowRight').style.display = 'none';
+                        document.getElementById('calendarArrowBlockRight').style.display = 'block';
+                        document.getElementById('calendarArrowRightForPhone').style.display = 'none';
+                      };
+                  };
+
+                  //予定が存在している時のみ処理を実行
+                  if(emptyList.value[i]){
+                    let yearDate = Object.keys(emptyList.value[i]);
+                    let dateForDay = new Date(yearDate[0].replace(/-/g,"/"));
+                    var dayOfWeek = dateForDay.getDay();
+                    var day = [ "日", "月", "火", "水", "木", "金", "土" ][dayOfWeek];
+                    let raw_date = yearDate[0].substring(5);
+                    let year = yearDate[0].replace(raw_date,'');
+
+                    date = raw_date.replace('-','/');
+
+                    let dateObject = Object.values(emptyList.value[i]);
+
+                    let calendarHTML = `<dl>
+                      <dt class="scrollElement">${date}<span>(${day})</span></dt>
+                      <dt class="fixedElement">${date}<span>(${day})</span></dt>`;
+
+                    let timeObject = Object.values(dateObject)[0];
+                    let timeArray = Object.keys(timeObject);
+                    let filledArray = Object.values(timeObject);
+
+                    for(let n = 0; n < timeArray.length; n++){
+
+                      let time = filledArray[n].time;
+                      let filled = filledArray[n].empty;
+          
+                      //予定が空いているかどうか判定
+                      if(filled == '0'){
+                        calendarHTML += `<dd class="days_slot"><a href="#target" id="${year}${raw_date} ${time}" class="selectable_time">${time}</a></dd>`;
+                      }else{
+                        calendarHTML += `<dd class=""><del>${time}</del></dd>`;
+                      };
+                    };
+                  
+                    calendarHTML += `</dl>`;
+
+                    document.getElementById('calendarTimeTable').insertAdjacentHTML('beforeend',calendarHTML);
+                  };
+
+                };
+
+                //日時を選択した際に、入力フォームまで移動させる処理
+                const daysSlotList = document.querySelectorAll('.selectable_time');
+                for(let i=0; i < daysSlotList.length; i++ ){
+                  daysSlotList[i].addEventListener('click',function(){
+                    let appointmentDate = this.id;
+                    appointmentDate = appointmentDate.replace('-','年').replace('-','月').replace(' ','日 ') + '～'
+                    document.getElementById('formDate').innerHTML = appointmentDate;
+                    document.getElementById('formDate').setAttribute('name', this.id);
+                    document.getElementById('errorMessage').innerHTML = '';
+                  });
+                };
+
+                pageIndex.value += 1;
+              };
+
+              //カレンダーの前のページを表示する関数
+              const previousCalendar = () => {
+
+                pageIndex.value += -1;
+
+                document.getElementById('calendarTimeTable').innerHTML = '';
+
+                //カレンダーの情報取得
+                for(let i = 7 * (pageIndex.value - 1); i < 7 * pageIndex.value; i++){
+
+                  //カレンダー横のボタン表示の切り替え
+                  if(pageIndex.value > 1){
+                    document.getElementById('calendarArrowLeft').style.display = 'block';
+                    document.getElementById('calendarArrowBlockLeft').style.display = 'none';
+                    document.getElementById('calendarArrowLeftForPhone').style.display = 'block';
+                    if(Object.values(emptyList.value).length > 7 * (pageIndex.value - 1)){
+                      document.getElementById('calendarArrowRight').style.display = 'block';
+                      document.getElementById('calendarArrowBlockRight').style.display = 'none';
+                      document.getElementById('calendarArrowRightForPhone').style.display = 'block';
+                    }else{
+                      document.getElementById('calendarArrowRight').style.display = 'none';
+                      document.getElementById('calendarArrowBlockRight').style.display = 'block';
+                      document.getElementById('calendarArrowRightForPhone').style.display = 'none';
+                    };
+                  }else{
+                    document.getElementById('calendarArrowLeft').style.display = 'none';
+                    document.getElementById('calendarArrowBlockLeft').style.display = 'block';
+                    document.getElementById('calendarArrowLeftForPhone').style.display = 'none';
+                    if(Object.values(emptyList.value).length > 7 * (pageIndex.value - 1)){
+                      document.getElementById('calendarArrowRight').style.display = 'block';
+                      document.getElementById('calendarArrowBlockRight').style.display = 'none';
+                      document.getElementById('calendarArrowRightForPhone').style.display = 'block';
+                    }else{
+                      document.getElementById('calendarArrowRight').style.display = 'none';
+                      document.getElementById('calendarArrowBlockRight').style.display = 'block';
+                      document.getElementById('calendarArrowRightForPhone').style.display = 'none';
+                    };
+                  };
+
+                  //予定が存在している時のみ処理を実行
+                  if(emptyList.value[i]){
+
+                      let yearDate = Object.keys(emptyList.value[i]);
+                      let dateForDay = new Date(yearDate[0].replace(/-/g,"/"));
+                      var dayOfWeek = dateForDay.getDay();
+                      var day = [ "日", "月", "火", "水", "木", "金", "土" ][dayOfWeek];
+                      let raw_date = yearDate[0].substring(5);
+                      let year = yearDate[0].replace(raw_date,'');
+
+                      date = raw_date.replace('-','/');
+
+                      let dateObject = Object.values(emptyList.value[i]);
+
+                      let calendarHTML = `<dl>
+                        <dt class="scrollElement">${date}<span>(${day})</span></dt>
+                        <dt class="fixedElement">${date}<span>(${day})</span></dt></dt>`;
+
+                      let timeObject = Object.values(dateObject)[0];
+                      let timeArray = Object.keys(timeObject);
+                      let filledArray = Object.values(timeObject);
+
+                      for(let n = 0; n < timeArray.length; n++){
+                        let time = filledArray[n].time;
+                        let filled = filledArray[n].empty;
+            
+                        //予定が空いているかどうか判定
+                        if(filled == '0'){
+                          calendarHTML += `<dd class="days_slot"><a href="#target" id="${year}${raw_date} ${time}" class="selectable_time">${time}</a></dd>`;
+                        }else{
+                          calendarHTML += `<dd class=""><del>${time}</del></dd>`;
+                        };
+                      };
+
+                      calendarHTML += `</dl>`;
+                      document.getElementById('calendarTimeTable').insertAdjacentHTML('beforeend',calendarHTML);
+                    }
+                };
+
+                //日時を選択した際に、入力フォームまで移動させる処理
+                const daysSlotList = document.querySelectorAll('.selectable_time');
+                for(let i=0; i < daysSlotList.length; i++ ){
+                  daysSlotList[i].addEventListener('click',function(){
+                    let appointmentDate = this.id;
+                    appointmentDate = appointmentDate.replace('-','年').replace('-','月').replace(' ','日 ') + '～'
+                    document.getElementById('formDate').innerHTML = appointmentDate;
+                    document.getElementById('formDate').setAttribute('name', this.id);
+                    document.getElementById('errorMessage').innerHTML = '';
+                  });
+                };
+              };
+
+              return {
+                onMounted,
+                nextCalendar,
+                previousCalendar,
+                pageLoading,
+                emptyList,
+                pageIndex,
+              }
+              },
+            });
+            app.use(Quasar,{
+              config: {
+                brand: {
+                  primary: '#be0000',
+                }
+              },
+            })
+            Quasar.lang.set(Quasar.lang.ja);
+            app.mount('#q-app');
+    
+          </script>
+    </body>
+</html>
