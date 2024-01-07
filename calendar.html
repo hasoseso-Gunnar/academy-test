@@ -541,11 +541,12 @@
                           .then(async(json)=>{
                             
                             //ユーザーは次のページへ遷移
-                            sessionStorage.setItem(selectedDate.value);
+                            sessionStorage.setItem('date',selectedDate.value);
                             submitLoading.value = false;
                             window.location.href = 'calendar-completed';
                           })
                           .catch((err)=>{
+                            console.log(err);
                             errorMessage.value = `<p>申し訳ございません。予約システムにエラーが発生いたしました。<br/>
                               通信環境をご確認の上、再度ご予約いただけますと幸いです。<br/>
                               再度エラーが発生する場合には、お手数ではございますが<a href="mailto:customer_service@a-ssign.com">customer_service@a-ssign.com</a>まで<br/>
